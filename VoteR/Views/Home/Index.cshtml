@@ -1,0 +1,30 @@
+﻿@model IEnumerable<VoteR.Models.Item>
+<h2>Vote!</h2>
+<table>
+<tr>
+@{
+    var i = 1;
+    foreach (var item in Model)
+    {
+        <td style="border:1px solid #000;" width="200px">           
+            <h4>@item.Name</h4>            
+            <div><img src="@Url.Content(item.Image)" width="125" height="125" /></div>
+            <h4>Votes: <span data-itemid="@item.Id">0</span></h4>
+            <button id="@item.Id">Vote For This</button>
+        </td>
+         if(i % 4 == 0)
+         {
+            @:</tr><tr>
+         }
+         i++;
+    }
+}
+</tr>
+</table>
+
+@section scripts {
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery.signalR-2.0.3.js"></script>
+<script src="~/signalr/hubs"></script>
+<script src="~/Scripts/default.js"></script>
+}
