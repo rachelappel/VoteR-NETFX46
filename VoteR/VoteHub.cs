@@ -22,6 +22,7 @@ public class VoteHub : Hub
     {   
         // AddVote tabulates the vote         
         var votes = AddVote(id);
+
         // Clients.All.updateVoteResults notifies all clients that someone has voted and the page updates itself to relect that 
         Clients.All.updateVoteResults(id, votes);
     }
