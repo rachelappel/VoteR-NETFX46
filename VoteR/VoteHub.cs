@@ -12,7 +12,7 @@ using System.Data.Entity;
 
 namespace VoteR
 {
-   
+ 
 public class VoteHub : Hub 
 {
     private static List<Item> VoteItems = new List<Item>();
@@ -22,9 +22,10 @@ public class VoteHub : Hub
     {   
         // AddVote tabulates the vote         
         var votes = AddVote(id);
-
+       
         // Clients.All.updateVoteResults notifies all clients that someone has voted and the page updates itself to relect that 
         Clients.All.updateVoteResults(id, votes);
+        
     }
     private static Item AddVote(int id) {
 
@@ -52,6 +53,4 @@ public class VoteHub : Hub
         return base.OnConnected();
     }
 }
-
-
 }

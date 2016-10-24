@@ -1,6 +1,6 @@
 ﻿$(function () {
     var voteHub = $.connection.voteHub;
-
+    
     $.connection.hub.start().done(function () {
         $("button").click(function () {
             voteHub.server.vote(this.id);
